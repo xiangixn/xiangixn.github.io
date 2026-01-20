@@ -233,9 +233,19 @@ nav a:hover::after {
 .blog-title {
     font-family: 'Great Vibes', 'Dancing Script', cursive;
     font-weight: 400;
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     letter-spacing: 0.05em;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+}
+
+.blog-title img {
+    transition: transform 0.3s ease;
+}
+
+.blog-title:hover img {
+    transform: rotate(10deg) scale(1.1);
 }
 
 /* 中文圆体字体样式 */

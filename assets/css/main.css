@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
 
 * {
     margin: 0;
@@ -176,4 +176,13 @@ nav a:hover::after {
 .card-hover:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 博客标题花体样式 */
+.blog-title {
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    font-weight: 400;
+    font-size: 1.75rem;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

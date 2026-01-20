@@ -6,14 +6,4 @@
 
 - **邮箱**: [widebbie0923@mail.scut.edu.cn](mailto:widebbie0923@mail.scut.edu.cn)
 
-## 🛠️ 技术栈
-
-- 持续学习中...
-
-## 📊 GitHub 统计
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=radical)
-
----
-
-⭐️ 感谢访问我的主页！
+ 感谢访问我的主页！

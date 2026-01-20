@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xin Xiang - 个人主页</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
         
         * {
             margin: 0;
@@ -17,6 +16,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            overflow-x: hidden;
         }
 
         .background-image {
@@ -25,28 +25,72 @@
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            position: relative;
         }
 
         .background-overlay {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+            backdrop-filter: blur(1px);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+        .name-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.05em;
         }
 
-        .avatar-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .subtitle-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
-        @keyframes fadeInUp {
+        .email-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .email-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: width 0.3s ease;
+        }
+
+        .email-link:hover {
+            color: #ffffff;
+        }
+
+        .email-link:hover::after {
+            width: 100%;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -54,59 +98,55 @@
             }
         }
 
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out;
         }
 
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .animate-fade-in-delay {
+            animation: fadeIn 1.2s ease-out 0.3s both;
         }
 
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 1.2s ease-out 0.6s both;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
         }
     </style>
 </head>
 <body class="background-image">
-    <div class="background-overlay min-h-screen flex items-center justify-center p-4">
-        <div class="glass-card rounded-3xl p-8 md:p-12 max-w-2xl w-full animate-fade-in-up hover-lift">
-            <!-- Avatar -->
-            <div class="flex justify-center mb-6">
-                <div class="avatar-gradient w-32 h-32 rounded-full flex items-center justify-center text-white text-5xl font-bold shadow-2xl">
-                    XX
-                </div>
-            </div>
-
+    <div class="background-overlay min-h-screen flex flex-col items-center justify-center p-6 md:p-8">
+        <div class="text-center space-y-8 max-w-3xl w-full">
             <!-- Name -->
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-3">
+            <h1 class="name-text text-6xl md:text-8xl lg:text-9xl animate-fade-in">
                 Xin Xiang
             </h1>
             
+            <!-- Divider -->
+            <div class="divider animate-fade-in-delay"></div>
+            
             <!-- Subtitle -->
-            <p class="text-gray-600 text-lg md:text-xl text-center mb-8">
+            <p class="subtitle-text text-sm md:text-base animate-fade-in-delay">
                 欢迎来到我的个人主页
             </p>
 
-            <!-- Contact Info Card -->
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 md:p-8 mb-6 shadow-inner">
-                <div class="flex flex-col items-center space-y-4">
-                    <div class="flex items-center space-x-4 group">
-                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-envelope text-white text-xl"></i>
-                        </div>
-                        <a href="mailto:widebbie0923@mail.scut.edu.cn" 
-                           class="text-lg md:text-xl text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium">
-                            widebbie0923@mail.scut.edu.cn
-                        </a>
-                    </div>
-                </div>
+            <!-- Email -->
+            <div class="pt-4 animate-fade-in-delay-2">
+                <a href="mailto:widebbie0923@mail.scut.edu.cn" 
+                   class="email-link text-lg md:text-xl lg:text-2xl">
+                    widebbie0923@mail.scut.edu.cn
+                </a>
             </div>
 
             <!-- Footer -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500 text-sm md:text-base">
-                    <i class="fas fa-star text-yellow-400"></i> 感谢访问
+            <div class="pt-12 md:pt-16 animate-fade-in-delay-2">
+                <p class="footer-text">
+                    感谢访问
                 </p>
             </div>
         </div>

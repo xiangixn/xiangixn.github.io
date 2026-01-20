@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xin Xiang - 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,30 +16,37 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        }
+
+        .background-image {
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3840&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .background-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .avatar-gradient {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
         }
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 60px 40px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -43,87 +54,61 @@
             }
         }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        h1 {
-            color: #333;
-            font-size: 36px;
-            margin-bottom: 10px;
-            font-weight: 600;
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        .contact-info {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            font-size: 18px;
-        }
-
-        .contact-item a {
-            color: #667eea;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        .icon {
-            font-size: 24px;
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: #999;
-            font-size: 14px;
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="avatar">XX</div>
-        <h1>Xin Xiang</h1>
-        <p class="subtitle">欢迎来到我的个人主页</p>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <span class="icon">📧</span>
-                <a href="mailto:your-email@example.com">widebbie0923@mail.scut.edu.cn</a>
+<body class="background-image">
+    <div class="background-overlay min-h-screen flex items-center justify-center p-4">
+        <div class="glass-card rounded-3xl p-8 md:p-12 max-w-2xl w-full animate-fade-in-up hover-lift">
+            <!-- Avatar -->
+            <div class="flex justify-center mb-6">
+                <div class="avatar-gradient w-32 h-32 rounded-full flex items-center justify-center text-white text-5xl font-bold shadow-2xl">
+                    XX
+                </div>
             </div>
-        </div>
 
-        <div class="footer">
-            <p>⭐️ 感谢访问</p>
+            <!-- Name -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-3">
+                Xin Xiang
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-gray-600 text-lg md:text-xl text-center mb-8">
+                欢迎来到我的个人主页
+            </p>
+
+            <!-- Contact Info Card -->
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 md:p-8 mb-6 shadow-inner">
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="flex items-center space-x-4 group">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </div>
+                        <a href="mailto:widebbie0923@mail.scut.edu.cn" 
+                           class="text-lg md:text-xl text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium">
+                            widebbie0923@mail.scut.edu.cn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8">
+                <p class="text-gray-500 text-sm md:text-base">
+                    <i class="fas fa-star text-yellow-400"></i> 感谢访问
+                </p>
+            </div>
         </div>
     </div>
 </body>

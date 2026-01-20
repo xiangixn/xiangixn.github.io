@@ -60,41 +60,37 @@ body {
 
 /* 专门为姓名设计的复合动画 */
 .name-animate {
-    /* 三重动画叠加：主呼吸(6s) + 随机频闪(2.3s) + 亮斑扫过(4s) */
+    /* 核心思想：文字保持清晰，光晕(text-shadow)进行多重周期波动 */
     animation: 
         fadeIn 1.2s ease-out forwards, 
-        shimmer-breath 6s infinite ease-in-out 1.2s,
-        starlight-twinkle 2.3s infinite linear 1.2s;
+        glow-ebb-flow 5s infinite ease-in-out 1.2s,
+        starlight-sparkle 3.1s infinite ease-in-out 1.2s;
 }
 
-/* 主呼吸：模拟远星的明暗缓慢波动 */
-@keyframes shimmer-breath {
+/* 主光晕呼吸：控制外围大光圈的扩张与收缩 */
+@keyframes glow-ebb-flow {
     0%, 100% {
-        opacity: 0.3; /* 深度变暗 */
-        filter: blur(1px) brightness(0.7);
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        text-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.4),
+            0 0 20px rgba(255, 255, 255, 0.2),
+            0 0 30px rgba(173, 216, 230, 0.1);
     }
     50% {
-        opacity: 1; /* 完全点亮 */
-        filter: blur(0px) brightness(1.2);
         text-shadow: 
-            0 0 15px rgba(255, 255, 255, 0.8),
-            0 0 30px rgba(173, 216, 230, 0.5);
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(173, 216, 230, 0.3),
+            0 0 80px rgba(173, 216, 230, 0.2);
     }
 }
 
-/* 随机频闪：模拟大气抖动造成的细微闪烁 */
-@keyframes starlight-twinkle {
-    0%, 100%, 20%, 60%, 80% {
-        filter: contrast(1) brightness(1);
+/* 随机星光跳动：控制内层亮点的瞬间亮度 */
+@keyframes starlight-sparkle {
+    0%, 100%, 30%, 80% {
+        filter: brightness(1);
     }
-    10%, 45%, 75% {
-        filter: contrast(1.3) brightness(1.5) saturate(1.2);
-        transform: scale(1.01);
-    }
-    30%, 90% {
-        filter: contrast(0.8) brightness(0.6);
-        transform: scale(0.99);
+    15%, 55%, 90% {
+        filter: brightness(1.2); /* 仅微调亮度，保持字形清晰 */
     }
 }
 
